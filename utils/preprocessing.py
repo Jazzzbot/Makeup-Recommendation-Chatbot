@@ -6,7 +6,7 @@ df = pd.read_csv("cosmetics.csv")
 def clean_data(input_df):
     """Clean the input DataFrame"""
     df = input_df.copy()
-    # Your cleaning code here
+    # cleaning code here
     return df
 
 print(df.isnull().sum())  # Any missing data?
