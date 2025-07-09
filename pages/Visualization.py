@@ -1,7 +1,7 @@
 import streamlit as st
 import matplotlib.pyplot as plt
 import seaborn as sns
-from utils.data_loader import load_data
+from utils.DataLoader import load_data
 
 def main():
     st.set_page_config(page_title="Visualizations", page_icon="📈")
@@ -50,7 +50,8 @@ def main():
             max_value=1.0,
             value=0.5
         )
-        corr = df.corr()
+        corr = df.select_dtypes(include='number').corr()
+
         st.write("Correlation Matrix (Highlighted > " + str(corr_threshold) + ")")
         st.dataframe(corr.style.applymap(lambda x: "background-color: yellow" if abs(x) > corr_threshold else ""))
     

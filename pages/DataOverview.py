@@ -1,6 +1,6 @@
 import streamlit as st
 import pandas as pd
-from utils.data_loader import load_data
+from utils.DataLoader import load_data
 
 def main():
     st.set_page_config(page_title="Data Overview", page_icon="📊")
