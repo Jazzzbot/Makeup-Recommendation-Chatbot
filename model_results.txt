@@ -1,0 +1,6 @@
+Model Performance Summary:
+Linear Regression: R² = 0.0295, RMSE = 0.7195
+Random Forest: R² = -0.0805, RMSE = 0.7592
+Gradient Boosting: R² = 0.0460, RMSE = 0.7134
+Ridge Regression: R² = 0.0295, RMSE = 0.7195
+Lasso Regression: R² = 0.0009, RMSE = 0.7301
