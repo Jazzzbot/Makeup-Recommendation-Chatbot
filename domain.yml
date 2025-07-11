@@ -3,32 +3,35 @@ version: "3.1"
 intents:
   - greet
   - goodbye
-  - affirm
-  - deny
-  - mood_great
-  - mood_unhappy
-  - bot_challenge
+  - ask_main_ingredient
+  - ask_products_with_ingredient
+  - ask_products_for_skin_type
+
+entities:
+  - product
+  - ingredient
+  - skin_type
+
+slots:
+  product:
+    type: text
+    influence_conversation: false
+  ingredient:
+    type: text
+    influence_conversation: false
+  skin_type:
+    type: text
+    influence_conversation: false
 
 responses:
   utter_greet:
-  - text: "Hey! How are you?"
-
-  utter_cheer_up:
-  - text: "Here is something to cheer you up:"
-    image: "https://i.imgur.com/nGF1K8f.jpg"
-
-  utter_did_that_help:
-  - text: "Did that help you?"
-
-  utter_happy:
-  - text: "Great, carry on!"
-
+    - text: "Hi! I'm your skincare assistant. Ask me about ingredients or product recommendations."
   utter_goodbye:
-  - text: "Bye"
+    - text: "Bye! Stay glowing ✨"
+  utter_default:
+    - text: "I'm not sure how to respond to that. Try asking about a product or ingredient."
 
-  utter_iamabot:
-  - text: "I am a bot, powered by Rasa."
-
-session_config:
-  session_expiration_time: 60
-  carry_over_slots_to_new_session: true
+actions:
+  - action_find_main_ingredient
+  - action_find_products_with_ingredient
+  - action_find_products_for_skin_type

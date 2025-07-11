@@ -3,89 +3,32 @@ version: "3.1"
 nlu:
 - intent: greet
   examples: |
-    - hey
-    - hello
     - hi
-    - hello there
+    - hello
+    - hey
     - good morning
-    - good evening
-    - moin
-    - hey there
-    - let's go
-    - hey dude
-    - goodmorning
-    - goodevening
-    - good afternoon
 
 - intent: goodbye
   examples: |
-    - cu
-    - good by
-    - cee you later
-    - good night
     - bye
     - goodbye
-    - have a nice day
-    - see you around
-    - bye bye
     - see you later
 
-- intent: affirm
+- intent: ask_main_ingredient
   examples: |
-    - yes
-    - y
-    - indeed
-    - of course
-    - that sounds good
-    - correct
+    - What is the main ingredient in [CeraVe Foaming Cleanser](product)?
+    - Tell me what's in [COSRX Snail Mucin](product)
+    - What's the key ingredient of [The Ordinary Glycolic Acid](product)?
 
-- intent: deny
+- intent: ask_products_with_ingredient
   examples: |
-    - no
-    - n
-    - never
-    - I don't think so
-    - don't like that
-    - no way
-    - not really
+    - Which products have [niacinamide](ingredient)?
+    - Show me items with [salicylic acid](ingredient)
+    - What contains [hyaluronic acid](ingredient)?
 
-- intent: mood_great
+- intent: ask_products_for_skin_type
   examples: |
-    - perfect
-    - great
-    - amazing
-    - feeling like a king
-    - wonderful
-    - I am feeling very good
-    - I am great
-    - I am amazing
-    - I am going to save the world
-    - super stoked
-    - extremely good
-    - so so perfect
-    - so good
-    - so perfect
+    - What’s good for [oily](skin_type) skin?
+    - Recommend something for [sensitive](skin_type) skin
+    - My skin is [dry](skin_type), what should I use?
 
-- intent: mood_unhappy
-  examples: |
-    - my day was horrible
-    - I am sad
-    - I don't feel very well
-    - I am disappointed
-    - super sad
-    - I'm so sad
-    - sad
-    - very sad
-    - unhappy
-    - not good
-    - not very good
-    - extremly sad
-    - so saad
-    - so sad
-
-- intent: bot_challenge
-  examples: |
-    - are you a bot?
-    - are you a human?
-    - am I talking to a bot?
-    - am I talking to a human?
