@@ -11,8 +11,8 @@ def train_and_evaluate(df_final):
     # Filter required columns and drop missing data
     df_model = df_final[['Price', 'Label', 'Rank']].dropna()
 
-    X = df_model[['Price', 'Label']]
-    y = df_model['Rank']
+    X = df_model[['price', 'label']]
+    y = df_model['rank']
 
     # One-hot encode the 'Label' column
     ct = ColumnTransformer([('encoder', OneHotEncoder(), ['Label'])], remainder='passthrough')
