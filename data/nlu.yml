@@ -1,34 +1,86 @@
 version: "3.1"
-
 nlu:
+
 - intent: greet
   examples: |
     - hi
     - hello
     - hey
     - good morning
+    - good evening
+    - what's up
+    - hey there
+    - hi assistant
 
 - intent: goodbye
   examples: |
     - bye
     - goodbye
+    - see you
+    - later
     - see you later
+    - take care
+    - thanks, bye
 
 - intent: ask_main_ingredient
   examples: |
-    - What is the main ingredient in [CeraVe Foaming Cleanser](product)?
-    - Tell me what's in [COSRX Snail Mucin](product)
-    - What's the key ingredient of [The Ordinary Glycolic Acid](product)?
+    - what's the main ingredient in [Cetaphil Moisturizer](product)?
+    - tell me the key ingredient in [Neutrogena Hydro Boost](product)
+    - what does [The Ordinary Niacinamide 10%](product) contain?
+    - ingredients in [CeraVe Foaming Cleanser](product)?
+    - what’s in [La Roche-Posay Toleriane Cleanser](product)?
+    - [Simple Hydrating Gel Cream](product) — what's its main component?
+    - which ingredient is used in [Pond's Light Moisturizer](product)?
+    - can you tell me the main thing in [Aveeno Daily Moisturizer](product)?
 
 - intent: ask_products_with_ingredient
   examples: |
-    - Which products have [niacinamide](ingredient)?
-    - Show me items with [salicylic acid](ingredient)
-    - What contains [hyaluronic acid](ingredient)?
+    - show me products with [niacinamide](ingredient)
+    - I want something that contains [salicylic acid](ingredient)
+    - suggest products with [retinol](ingredient)
+    - recommend creams that use [vitamin c](ingredient)
+    - what can I use with [hyaluronic acid](ingredient)?
+    - find moisturizers with [tea tree oil](ingredient)
+    - any products with [benzoyl peroxide](ingredient)?
+    - what skincare has [ceramides](ingredient)?
 
 - intent: ask_products_for_skin_type
   examples: |
-    - What’s good for [oily](skin_type) skin?
-    - Recommend something for [sensitive](skin_type) skin
-    - My skin is [dry](skin_type), what should I use?
+    - recommend products for [dry](skin_type) skin
+    - what should I use for [oily](skin_type) skin?
+    - I have [sensitive](skin_type) skin, any suggestions?
+    - best products for [normal](skin_type) skin?
+    - suggest something for [combination](skin_type) skin
+    - help me find something for [dry](skin_type) skin
+    - any product for [sensitive](skin_type) skin?
+    - give me recommendations for [oily](skin_type) skin
 
+- lookup: product
+  examples: |
+    - Cetaphil Moisturizer
+    - Neutrogena Hydro Boost
+    - The Ordinary Niacinamide 10%
+    - CeraVe Foaming Cleanser
+    - La Roche-Posay Toleriane Cleanser
+    - Simple Hydrating Gel Cream
+    - Aveeno Daily Moisturizer
+    - Pond's Light Moisturizer
+
+- lookup: ingredient
+  examples: |
+    - niacinamide
+    - salicylic acid
+    - retinol
+    - vitamin c
+    - hyaluronic acid
+    - benzoyl peroxide
+    - ceramides
+    - tea tree oil
+
+- lookup: skin_type
+  examples: |
+    - dry
+    - oily
+    - sensitive
+    - normal
+    - combination

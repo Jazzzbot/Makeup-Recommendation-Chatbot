@@ -4,7 +4,7 @@ from rasa_sdk.executor import CollectingDispatcher
 from typing import Any, Dict, List, Text
 
 # Load dataset once globally
-df = pd.read_csv("cosmetics.csv")  # Adjust path if needed
+df = pd.read_csv("cosmetics.csv")  # Make sure this file is available
 
 class ActionFindMainIngredient(Action):
     def name(self) -> Text:
@@ -49,9 +49,10 @@ class ActionFindProductsForSkinType(Action):
         if skin_type and skin_type.capitalize() in df.columns:
             matches = df[df[skin_type.capitalize()] == 1]
             products = matches["Name"].head(5).tolist()
-            dispatcher.utter_message(text=f"Top products for {skin_type} skin: {', '.join(products)}")
+            if products:
+                dispatcher.utter_message(text=f"Top products for {skin_type} skin: {', '.join(products)}")
+            else:
+                dispatcher.utter_message(text=f"No products found for {skin_type} skin.")
         else:
             dispatcher.utter_message(text="Couldn't find any matches. Try dry, oily, sensitive, or normal.")
         return []
-
-

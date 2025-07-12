@@ -1,0 +1,33 @@
+# .streamlit/pages.toml
+
+[[pages]]
+path = "app.py"
+name = "🏠 Home"
+
+[[pages]]
+path = "pages/Overview.py"
+name = "📊 Data Overview"
+
+[[pages]]
+path = "pages/Visualization.py"
+name = "📈 Visualizations"
+
+[[pages]]
+path = "pages/Search.py"
+name = "🔍 Product Search"
+
+[[pages]]
+path = "pages/ModelTraining.py"
+name = "🧠 Model Training"
+
+[[pages]]
+path = "pages/Models.py"
+name = "📐 Model Results"
+
+[[pages]]
+path = "pages/FakeDataImpact.py"
+name = "🧪 Fake Data Impact"
+
+[[pages]]
+path = "pages/Conclusion.py"
+name = "✅ Conclusion"
