@@ -1,27 +1,31 @@
 from data_cleaning import load_and_clean_data
 from fake_data_generator import generate_fake_data
-from model_training import train_and_evaluate
+from from_sklearn import train_and_evaluate
 import pandas as pd
 
 def main():
+    # Load and prepare data
     clean_df = load_and_clean_data("cosmetics.csv")
     df_fake = generate_fake_data(clean_df)
     
     df_final = pd.concat([clean_df, df_fake], ignore_index=True)
     df_final.to_csv("cosmetics_with_fake_data.csv", index=False)
 
-    results = train_and_evaluate(df_final)
+    # Train models and evaluate
+    results = train_and_evaluate(df_final)  
 
-    print("Linear Regression R²:", results['lr_r2'])
-    print("Linear Regression RMSE:", results['lr_rmse'])
-    print("Random Forest R²:", results['rf_r2'])
-    print("Random Forest RMSE:", results['rf_rmse'])
+    # Print all model results
+    print("\n Model Performance Summary:")
+    for model_name, metrics in results.items():
+        print(f"{model_name}: R² = {metrics['R²']:.4f}, RMSE = {metrics['RMSE']:.4f}")
 
+    # Save to text file
     with open("model_results.txt", "w") as f:
-        f.write(f"Linear Regression R²: {results['lr_r2']}\n")
-        f.write(f"Linear Regression RMSE: {results['lr_rmse']}\n")
-        f.write(f"Random Forest R²: {results['rf_r2']}\n")
-        f.write(f"Random Forest RMSE: {results['rf_rmse']}\n")
+        f.write("Model Performance Summary:\n")
+        for model_name, metrics in results.items():
+            f.write(f"{model_name}: R² = {metrics['R²']:.4f}, RMSE = {metrics['RMSE']:.4f}\n")
+
+    print("\n Results saved to 'model_results.txt' and 'model_comparison.csv'.")
 
 if __name__ == "__main__":
     main()
