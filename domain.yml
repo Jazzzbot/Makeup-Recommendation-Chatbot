@@ -16,18 +16,31 @@ slots:
   product:
     type: text
     influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: product
+
   ingredient:
     type: text
     influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: ingredient
+
   skin_type:
     type: text
     influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: skin_type
 
 responses:
   utter_greet:
     - text: "Hi! I'm your skincare assistant. Ask me about ingredients or product recommendations."
+
   utter_goodbye:
     - text: "Bye! Stay glowing ✨"
+
   utter_default:
     - text: "I'm not sure how to respond to that. Try asking about a product or ingredient."
 
@@ -35,3 +48,4 @@ actions:
   - action_find_main_ingredient
   - action_find_products_with_ingredient
   - action_find_products_for_skin_type
+
